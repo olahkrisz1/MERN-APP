@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Register = () => {
     const [user, setUser] = React.useState({
@@ -32,9 +33,8 @@ const Register = () => {
         onChange={(e) => setUser({...user, password: e.target.value})} 
         />  
         
-        <button className="primary-contained-btn"
-        onClick={register}
-        >Register</button>
+        <Button title="Register" onClick={register}
+        disabled={user.name.length <3 || user.email.length < 3 || user.password.length < 3} />
         
         <Link to="/login" className="text-center text-primary underline">Already have an account? Login</Link>
         </div>
